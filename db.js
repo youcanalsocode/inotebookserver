@@ -4,9 +4,7 @@ const mongoURI = "mongodb://localhost:27017/iNotebooks";
 
 async function connectToMongo() {
   try {
-    await mongoose.connect(mongoURI, {
-      serverSelectionTimeoutMS: 50000,
-    });
+    await mongoose.connect(mongoURI, {});
 
     console.log("Connected to Mongo Successfully");
   } catch (error) {
