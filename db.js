@@ -5,12 +5,8 @@ const mongoURI = "mongodb://localhost:27017/iNotebooks";
 async function connectToMongo() {
   try {
     await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 30000,
     });
-
-    // Wait until the connection is ready
-    await mongoose.connection.readyState;
 
     console.log("Connected to Mongo Successfully");
   } catch (error) {
